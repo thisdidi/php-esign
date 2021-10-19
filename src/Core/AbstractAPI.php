@@ -52,14 +52,14 @@ abstract class AbstractAPI
      *
      * @return Http
      */
-    public function getHttp()
+    public function getHttp($method, array $args = [])
     {
         if (is_null($this->http)) {
             $this->http = new Http();
         }
 
         if (0 === count($this->http->getMiddlewares())) {
-            $this->registerHttpMiddlewares();
+            $this->registerHttpMiddlewares($method, $args);
         }
 
         return $this->http;
@@ -121,7 +121,7 @@ abstract class AbstractAPI
      */
     public function parseJSON($method, array $args)
     {
-        $http = $this->getHttp();
+        $http = $this->getHttp($method, $args);
 
         $contents = $http->parseJSON(call_user_func_array([$http, $method], $args));
 
@@ -137,14 +137,14 @@ abstract class AbstractAPI
     /**
      * Register Guzzle middlewares.
      */
-    protected function registerHttpMiddlewares()
+    protected function registerHttpMiddlewares($method, array $args = [])
     {
         // log
         $this->http->addMiddleware($this->logMiddleware());
         // retry
         $this->http->addMiddleware($this->retryMiddleware());
         // access token
-        $this->http->addMiddleware($this->accessTokenMiddleware());
+        $this->http->addMiddleware($this->accessTokenMiddleware($method, $args));
     }
 
     /**
@@ -152,9 +152,9 @@ abstract class AbstractAPI
      *
      * @return \Closure
      */
-    protected function accessTokenMiddleware()
+    protected function accessTokenMiddleware($method, array $args = [])
     {
-        return function (callable $handler) {
+        /*return function (callable $handler) {
             return function (RequestInterface $request, array $options) use ($handler) {
                 if (!$this->accessToken) {
                     return $handler($request, $options);
@@ -166,7 +166,64 @@ abstract class AbstractAPI
 
                 return $handler($request, $options);
             };
+        };*/
+
+        return function (callable $handler) use ($method, $args) {
+            return function (RequestInterface $request, array $options) use ($handler, $method, $args) {
+
+                $method = strtoupper($method);
+                $contentMD5 = "{}";
+                switch ($method) {
+                    case 'GET':
+                        break;
+                    default:
+                        if (!empty($args[1])) {
+                            $contentMD5 = $this->doContentMd5(json_encode((object)$args[1], JSON_FORCE_OBJECT));
+                        }
+                        break;
+                }
+
+                $appId = $this->accessToken->getAppId();
+                $accept = "application/json";
+                $contentType = "application/json; charset=UTF-8";
+                $url = $args[0];
+                $date = "";
+                $headers = "";
+
+                $plaintext = $method . "\n" . $accept . "\n" . $contentMD5 . "\n" . $contentType . "\n" . $date . "\n" . $headers;
+                $plaintext = $headers == "" ? $plaintext . $url : $plaintext . "\n" . $url;
+
+
+                $request = $request->withHeader('X-Tsign-Open-App-Id', $appId);
+                $request = $request->withHeader("X-Tsign-Open-Auth-Mode", "Signature");
+                list($msec, $sec) = explode(' ', microtime());
+                $msectime = (string)sprintf('%.0f', (floatval($msec) + floatval($sec)) * 1000);
+                $request = $request->withHeader("X-Tsign-Open-Ca-Timestamp", $msectime);
+                $request = $request->withHeader("Accept", $accept);
+                $request = $request->withHeader("Content-Type", $contentType);
+                $reqSignature = $this->doSignatureBase64($plaintext, $this->accessToken->getSecret());
+                $request = $request->withHeader("X-Tsign-Open-Ca-Signature", $reqSignature);
+                $request = $request->withHeader("Content-MD5", $contentMD5);
+                //   header.put("X-Tsign-Open-Ca-Timestamp", String.valueOf(timeStamp));
+                //      header.put();
+                //      header.put();
+                //      header.put("X-Tsign-Open-Ca-Signature", reqSignature);
+                //      header.put("Content-MD5", contentMD5);
+
+                return $handler($request, $options);
+            };
         };
+    }
+
+    protected function doSignatureBase64(string $plaintext, string $secret)
+    {
+        $sign = hash_hmac('sha256', $plaintext, $secret, true);
+        return base64_encode($sign);
+    }
+
+    protected function doContentMd5(string $content)
+    {
+        return base64_encode(md5($content));
     }
 
     /**
