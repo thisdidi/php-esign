@@ -1,9 +1,9 @@
 {
     "name": "conle\/esign",
-    "description": "根据e签宝官方文档开发的一个 PHP 扩展包",
+    "description": "laravel md5 e签宝",
     "license": "MIT",
     "require": {
-        "php":">=7.1",
+        "php":">=8.0",
         "ext-openssl": "*",
         "monolog/monolog": "^2.0",
         "pimple/pimple": "^3.0",
