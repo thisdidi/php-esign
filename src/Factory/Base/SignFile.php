@@ -5,9 +5,9 @@ namespace Conle\ESign\Factory\Base;
 
 use Conle\ESign\Factory\Antfinsign\CheckAntfinNotary;
 use Conle\ESign\Factory\Antfinsign\QrySignAntPushInfo;
-use Conle\ESign\Factory\Signfile\Attachements\CreateAttachments;
-use Conle\ESign\Factory\Signfile\Attachements\DeleteAttachments;
-use Conle\ESign\Factory\Signfile\Attachements\QryAttachments;
+use Conle\ESign\Factory\Signfile\Attachments\CreateAttachments;
+use Conle\ESign\Factory\Signfile\Attachments\DeleteAttachments;
+use Conle\ESign\Factory\Signfile\Attachments\QryAttachments;
 use Conle\ESign\Factory\Signfile\CreateFlowOneStep;
 use Conle\ESign\Factory\Signfile\Datasign\Datasign;
 use Conle\ESign\Factory\Signfile\Datasign\DataVerify;

@@ -1,5 +1,5 @@
 <?php
-namespace Conle\ESign\Factory\Signfile\Attachements;
+namespace Conle\ESign\Factory\Signfile\Attachments;
 use Conle\ESign\Factory\Request\EsignRequest;
 use Conle\ESign\Emun\HttpEmun;
 /**
