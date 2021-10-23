@@ -4,7 +4,7 @@
 namespace Conle\ESign\Factory\Signfile\Signfields;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API添加平台自动盖章签署区
  * @author  澄泓
@@ -65,7 +65,7 @@ class CreatePlatformSign extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/signflows/".$this->flowId."/signfields/platformSign");
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**

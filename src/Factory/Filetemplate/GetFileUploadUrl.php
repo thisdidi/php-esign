@@ -4,7 +4,7 @@
 namespace Conle\ESign\Factory\Filetemplate;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API通过上传方式创建文件
  * @author  澄泓
@@ -136,7 +136,7 @@ class GetFileUploadUrl extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/files/getUploadUrl");
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**

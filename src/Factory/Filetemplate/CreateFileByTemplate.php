@@ -2,7 +2,7 @@
 namespace Conle\ESign\Factory\Filetemplate;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API通过模板创建文件
  * @author  澄泓
@@ -79,7 +79,7 @@ class CreateFileByTemplate extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/files/createByTemplate");
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**

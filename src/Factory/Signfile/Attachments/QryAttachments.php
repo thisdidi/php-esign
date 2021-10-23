@@ -4,7 +4,7 @@
 namespace Conle\ESign\Factory\Signfile\Attachements;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API流程附件列表
  * @author  澄泓
@@ -44,7 +44,7 @@ class QryAttachments extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/signflows/".$this->flowId."/attachments");
-        $this->setReqType(\HttpEmun::GET);
+        $this->setReqType(HttpEmun::GET);
     }
 
     /**

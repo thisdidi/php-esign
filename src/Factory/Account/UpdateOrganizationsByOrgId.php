@@ -4,7 +4,7 @@
 namespace Conle\ESign\Factory\Account;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API机构账号修改（按照账号ID修改）
  * @author  澄泓
@@ -128,7 +128,7 @@ class UpdateOrganizationsByOrgId extends EsignRequest implements \JsonSerializab
     function build()
     {
        $this->setUrl("/v1/organizations/".$this->orgId);
-       $this->setReqType(\HttpEmun::PUT);
+       $this->setReqType(HttpEmun::PUT);
     }
 
     /**

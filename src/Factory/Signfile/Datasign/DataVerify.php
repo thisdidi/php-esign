@@ -4,7 +4,7 @@
 namespace Conle\ESign\Factory\Signfile\Datasign;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API文本签验签
  * @author  澄泓
@@ -65,7 +65,7 @@ class DataVerify extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/dataSign/verify");
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**

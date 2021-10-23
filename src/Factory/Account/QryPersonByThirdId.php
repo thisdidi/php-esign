@@ -4,7 +4,7 @@
 namespace Conle\ESign\Factory\Account;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API查询个人账户（按照第三方用户ID查询）
  * @author  澄泓
@@ -43,7 +43,7 @@ class QryPersonByThirdId extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/accounts/getByThirdId?thirdPartyUserId=".$this->thirdPartyUserId);
-        $this->setReqType(\HttpEmun::GET);
+        $this->setReqType(HttpEmun::GET);
     }
 
     /**

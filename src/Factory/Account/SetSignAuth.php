@@ -4,6 +4,7 @@
 namespace Conle\ESign\Factory\Account;
 
 use Conle\ESign\Factory\Request\EsignRequest;
+use Conle\ESign\Emun\HttpEmun;
 use JsonSerializable;
 
 /**
@@ -61,7 +62,7 @@ class SetSignAuth extends EsignRequest implements JsonSerializable
     function build()
     {
         $this->setUrl("/v1/signAuth/".$this->accountId);
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**

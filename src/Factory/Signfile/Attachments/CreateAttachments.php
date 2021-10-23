@@ -1,7 +1,7 @@
 <?php
 namespace Conle\ESign\Factory\Signfile\Attachements;
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API流程附件添加
  * @author  澄泓
@@ -62,7 +62,7 @@ class CreateAttachments extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/signflows/".$this->flowId."/attachments");
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**

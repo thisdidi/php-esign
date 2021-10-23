@@ -4,7 +4,7 @@
 namespace Conle\ESign\Factory\Signfile\Attachements;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API流程附件删除
  * @author  澄泓
@@ -65,7 +65,7 @@ class DeleteAttachments extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/signflows/".$this->flowId."/attachments?fileIds=".$this->fileIds);
-        $this->setReqType(\HttpEmun::DELETE);
+        $this->setReqType(HttpEmun::DELETE);
     }
 
     /**

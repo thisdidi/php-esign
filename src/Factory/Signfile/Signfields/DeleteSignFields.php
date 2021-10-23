@@ -3,7 +3,7 @@
 namespace Conle\ESign\Factory\Signfile\Signfields;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API删除签署区
  * @author  澄泓
@@ -64,7 +64,7 @@ class DeleteSignFields extends EsignRequest implements \JsonSerializable
     function build()
     {
        $this->setUrl("/v1/signflows/".$this->flowId."/signfields?signfieldIds=".$this->signfieldIds);
-       $this->setReqType(\HttpEmun::DELETE);
+       $this->setReqType(HttpEmun::DELETE);
     }
 
     /**

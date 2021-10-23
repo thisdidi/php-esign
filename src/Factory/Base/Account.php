@@ -1,5 +1,7 @@
 <?php
+
 namespace Conle\ESign\Factory\Base;
+
 use Conle\ESign\Factory\Account\CreateOrganizationsByThirdPartyUserId;
 use Conle\ESign\Factory\Account\CreatePersonByThirdPartyUserId;
 use Conle\ESign\Factory\Account\DeleteOrganizationsByOrgId;
@@ -17,6 +19,7 @@ use Conle\ESign\Factory\Account\UpdateOrganizationsByOrgId;
 use Conle\ESign\Factory\Account\UpdateOrganizationsByThirdId;
 use Conle\ESign\Factory\Account\UpdatePersonAccountByAccountId;
 use Conle\ESign\Factory\Account\UpdatePersonAccountByThirdId;
+use Conle\ESign\Factory\Signfile\Seals\CreateOfficialTemplate;
 
 /**
  * 轩辕API账号相关功能类
@@ -33,8 +36,9 @@ class Account
      * @param $idNumber
      * @return CreatePersonByThirdPartyUserId
      */
-    public static function createPersonByThirdPartyUserId($thirdPartyUserId, $name, $idType, $idNumber,$email=''){
-        return new CreatePersonByThirdPartyUserId($thirdPartyUserId,$name,$idType,$idNumber,$email);
+    public static function createPersonByThirdPartyUserId($thirdPartyUserId, $name, $idType, $idNumber, $email = '')
+    {
+        return new CreatePersonByThirdPartyUserId($thirdPartyUserId, $name, $idType, $idNumber, $email);
     }
 
     /**
@@ -46,7 +50,8 @@ class Account
      * @param $idNumber
      * @return CreateOrganizationsByThirdPartyUserId
      */
-    public static function createOrganizationsByThirdPartyUserId($thirdPartyUserId, $creator, $name, $idType, $idNumber){
+    public static function createOrganizationsByThirdPartyUserId($thirdPartyUserId, $creator, $name, $idType, $idNumber)
+    {
         return new CreateOrganizationsByThirdPartyUserId($thirdPartyUserId, $creator, $name, $idType, $idNumber);
     }
 
@@ -55,7 +60,8 @@ class Account
      * @param $orgId
      * @return DeleteOrganizationsByOrgId
      */
-    public static function deleteOrganizationsByOrgId($orgId){
+    public static function deleteOrganizationsByOrgId($orgId)
+    {
         return new DeleteOrganizationsByOrgId($orgId);
     }
 
@@ -64,7 +70,8 @@ class Account
      * @param $thirdPartyUserId
      * @return DeleteOrganizationsByThirdId
      */
-    public static function deleteOrganizationsByThirdId($thirdPartyUserId){
+    public static function deleteOrganizationsByThirdId($thirdPartyUserId)
+    {
         return new DeleteOrganizationsByThirdId($thirdPartyUserId);
     }
 
@@ -73,7 +80,8 @@ class Account
      * @param $accountId
      * @return DeletePersonByAccountId
      */
-    public static function deletePersonByAccountId($accountId){
+    public static function deletePersonByAccountId($accountId)
+    {
         return new DeletePersonByAccountId($accountId);
     }
 
@@ -82,7 +90,8 @@ class Account
      * @param $thirdPartyUserId
      * @return DeletePersonByThirdId
      */
-    public static function deletePersonByThirdId($thirdPartyUserId){
+    public static function deletePersonByThirdId($thirdPartyUserId)
+    {
         return new DeletePersonByThirdId($thirdPartyUserId);
     }
 
@@ -91,7 +100,8 @@ class Account
      * @param $accountId
      * @return DeleteSignAuth
      */
-    public static function deleteSignAuth($accountId){
+    public static function deleteSignAuth($accountId)
+    {
         return new DeleteSignAuth($accountId);
     }
 
@@ -100,7 +110,8 @@ class Account
      * @param $orgId
      * @return QryOrganizationsByOrgId
      */
-    public static function qryOrganizationsByOrgId($orgId){
+    public static function qryOrganizationsByOrgId($orgId)
+    {
         return new QryOrganizationsByOrgId($orgId);
     }
 
@@ -109,7 +120,8 @@ class Account
      * @param $thirdPartyUserId
      * @return QryOrganizationsByThirdId
      */
-    public static function qryOrganizationsByThirdId($thirdPartyUserId){
+    public static function qryOrganizationsByThirdId($thirdPartyUserId)
+    {
         return new QryOrganizationsByThirdId($thirdPartyUserId);
     }
 
@@ -118,7 +130,8 @@ class Account
      * @param $accountId
      * @return QryPersonByaccountId
      */
-    public static function qryPersonByaccountId($accountId){
+    public static function qryPersonByaccountId($accountId)
+    {
         return new QryPersonByaccountId($accountId);
     }
 
@@ -127,7 +140,8 @@ class Account
      * @param $thirdPartyUserId
      * @return QryPersonByThirdId
      */
-    public static function qryPersonByThirdId($thirdPartyUserId){
+    public static function qryPersonByThirdId($thirdPartyUserId)
+    {
         return new QryPersonByThirdId($thirdPartyUserId);
     }
 
@@ -136,7 +150,8 @@ class Account
      * @param $accountId
      * @return SetSignAuth
      */
-    public static function setSignAuth($accountId){
+    public static function setSignAuth($accountId)
+    {
         return new SetSignAuth($accountId);
     }
 
@@ -146,7 +161,8 @@ class Account
      * @param $password
      * @return SetSignPwd
      */
-    public static function setSignPwd($accountId, $password){
+    public static function setSignPwd($accountId, $password)
+    {
         return new SetSignPwd($accountId, $password);
     }
 
@@ -155,7 +171,8 @@ class Account
      * @param $orgId
      * @return UpdateOrganizationsByOrgId
      */
-    public static function updateOrganizationsByOrgId($orgId){
+    public static function updateOrganizationsByOrgId($orgId)
+    {
         return new UpdateOrganizationsByOrgId($orgId);
     }
 
@@ -164,7 +181,8 @@ class Account
      * @param $thirdPartyUserId
      * @return UpdateOrganizationsByThirdId
      */
-    public static function updateOrganizationsByThirdId($thirdPartyUserId){
+    public static function updateOrganizationsByThirdId($thirdPartyUserId)
+    {
         return new UpdateOrganizationsByThirdId($thirdPartyUserId);
     }
 
@@ -173,7 +191,8 @@ class Account
      * @param $accountId
      * @return UpdatePersonAccountByAccountId
      */
-    public static function updatePersonAccountByAccountId($accountId){
+    public static function updatePersonAccountByAccountId($accountId)
+    {
         return new UpdatePersonAccountByAccountId($accountId);
     }
 
@@ -182,7 +201,21 @@ class Account
      * @param $thirdPartyUserId
      * @return UpdatePersonAccountByThirdId
      */
-    public static function updatePersonAccountByThirdId($thirdPartyUserId){
+    public static function updatePersonAccountByThirdId($thirdPartyUserId)
+    {
         return new UpdatePersonAccountByThirdId($thirdPartyUserId);
-}
+    }
+
+    /**
+     * 创建机构印章
+     * @param $orgId
+     * @param string $color
+     * @param string $type
+     * @param string $central
+     * @return CreateOfficialTemplate
+     */
+    public static function createOfficialTemplate($orgId, string $color = 'RED', string $type = 'TEMPLATE_ROUND', string $central = 'STAR')
+    {
+        return new CreateOfficialTemplate($orgId, $color, $type, $central);
+    }
 }

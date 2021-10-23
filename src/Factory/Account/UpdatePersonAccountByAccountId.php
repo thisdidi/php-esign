@@ -4,7 +4,7 @@
 namespace Conle\ESign\Factory\Account;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API个人账户修改(按照账号ID修改)
  * @author  澄泓
@@ -127,7 +127,7 @@ class UpdatePersonAccountByAccountId extends EsignRequest implements \JsonSerial
     function build()
     {
         $this->setUrl("/v1/accounts/".$this->accountId);
-        $this->setReqType(\HttpEmun::PUT);
+        $this->setReqType(HttpEmun::PUT);
     }
 
     /**

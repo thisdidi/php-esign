@@ -1,7 +1,7 @@
 <?php
 namespace Conle\ESign\Factory\Antfinsign;
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API核验签署文件上链信息
  * @author  澄泓
@@ -58,7 +58,7 @@ class CheckAntfinNotary extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/checkAntfinNotary");
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**

@@ -4,7 +4,7 @@
 namespace Conle\ESign\Factory\Signfile\Signers;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API流程签署人列表
  * @author  澄泓
@@ -44,6 +44,6 @@ class QrySigners extends EsignRequest
     function build()
     {
         $this->setUrl("/v1/signflows/".$this->flowId."/signers");
-        $this->setReqType(\HttpEmun::GET);
+        $this->setReqType(HttpEmun::GET);
     }
 }

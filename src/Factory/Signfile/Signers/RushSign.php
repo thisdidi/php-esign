@@ -4,7 +4,7 @@
 namespace Conle\ESign\Factory\Signfile\Signers;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API流程签署人催签
  * @author  澄泓
@@ -101,7 +101,7 @@ class RushSign extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/signflows/".$this->flowId."/signers/rushsign");
-        $this->setReqType(\HttpEmun::PUT);
+        $this->setReqType(HttpEmun::PUT);
     }
 
     /**

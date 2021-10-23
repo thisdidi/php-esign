@@ -2,7 +2,7 @@
 
 namespace Conle\ESign\Factory\Signfile\Datasign;
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API平台方&平台用户文本签
  * @author  澄泓
@@ -82,7 +82,7 @@ class DataSign extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/dataSign");
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**

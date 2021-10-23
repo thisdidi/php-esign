@@ -3,7 +3,7 @@
 namespace Conle\ESign\Factory\Signfile;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API一步发起签署
  * @author  澄泓
@@ -124,7 +124,7 @@ class CreateFlowOneStep extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/api/v2/signflows/createFlowOneStep");
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**

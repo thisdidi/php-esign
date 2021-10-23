@@ -1,7 +1,7 @@
 <?php
 namespace Conle\ESign\Factory\Signfile\Signflows;
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API签署流程归档
  * @author  澄泓
@@ -41,7 +41,7 @@ class ArchiveSignFlow extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/signflows/".$this->flowId."/archive");
-        $this->setReqType(\HttpEmun::PUT);
+        $this->setReqType(HttpEmun::PUT);
     }
 
     /**

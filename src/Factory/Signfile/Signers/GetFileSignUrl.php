@@ -1,7 +1,7 @@
 <?php
 namespace Conle\ESign\Factory\Signfile\Signers;
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API获取签署地址
  * @author  澄泓
@@ -129,6 +129,6 @@ class GetFileSignUrl extends EsignRequest
             $url=$url."&appScheme=".$this->appScheme;
         }
         $this->setUrl($url);
-        $this->setReqType(\HttpEmun::GET);
+        $this->setReqType(HttpEmun::GET);
     }
 }

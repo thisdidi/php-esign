@@ -4,7 +4,7 @@
 namespace Conle\ESign\Factory\Signfile\Signfields;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API查询签署区列表
  * @author  澄泓
@@ -89,6 +89,6 @@ class QrySignFields extends EsignRequest
             $url=$url."&signfieldIds=".$this->signfieldIds;
         }
         $this->setUrl($url);
-        $this->setReqType(\HttpEmun::GET);
+        $this->setReqType(HttpEmun::GET);
     }
 }

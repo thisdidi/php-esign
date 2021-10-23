@@ -4,7 +4,7 @@
 namespace Conle\ESign\Factory\Antfinsign;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API查询签署文件上链信息
  * @author  澄泓
@@ -42,7 +42,7 @@ class QrySignAntPushInfo extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/querySignAntPushInfo");
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**

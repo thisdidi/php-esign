@@ -2,7 +2,7 @@
 namespace Conle\ESign\Factory\Signfile\Documents;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API流程文档添加
  * @author  澄泓
@@ -63,7 +63,7 @@ class CreateDocuments extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/signflows/".$this->flowId."/documents");
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**

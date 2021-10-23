@@ -4,7 +4,7 @@
 namespace Conle\ESign\Factory\Signfile\Signflows;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API签署流程撤销
  * @author  澄泓
@@ -82,7 +82,7 @@ class RevokeSignFlow extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/signflows/".$this->flowId."/revoke");
-        $this->setReqType(\HttpEmun::PUT);
+        $this->setReqType(HttpEmun::PUT);
     }
 
     /**

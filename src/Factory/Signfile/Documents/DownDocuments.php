@@ -4,7 +4,7 @@
 namespace Conle\ESign\Factory\Signfile\Documents;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API流程文档下载
  * @author  澄泓
@@ -44,7 +44,7 @@ class DownDocuments extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/signflows/".$this->flowId."/documents");
-        $this->setReqType(\HttpEmun::GET);
+        $this->setReqType(HttpEmun::GET);
     }
 
     /**

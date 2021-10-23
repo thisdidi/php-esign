@@ -4,7 +4,7 @@
 namespace Conle\ESign\Factory\Signfile\Signflows;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API流程签署数据存储凭据
  * @author  澄泓
@@ -44,6 +44,6 @@ class GetVoucherSignFlow extends EsignRequest
     function build()
     {
         $this->setUrl("/api/v2/signflows/".$this->flowId."/getVoucher");
-        $this->setReqType(\HttpEmun::GET);
+        $this->setReqType(HttpEmun::GET);
     }
 }

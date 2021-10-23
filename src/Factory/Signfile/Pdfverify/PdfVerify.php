@@ -1,7 +1,7 @@
 <?php
 namespace Conle\ESign\Factory\Signfile\Pdfverify;
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API文件验签
  * @author  澄泓
@@ -64,7 +64,7 @@ class PdfVerify extends EsignRequest implements \JsonSerializable
             $url=$url."&flowId=".$this->flowId;
         }
         $this->setUrl($url);
-        $this->setReqType(\HttpEmun::GET);
+        $this->setReqType(HttpEmun::GET);
     }
 
     /**

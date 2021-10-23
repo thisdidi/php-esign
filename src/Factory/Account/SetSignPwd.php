@@ -4,7 +4,7 @@
 namespace Conle\ESign\Factory\Account;
 
 use Conle\ESign\Factory\Request\EsignRequest;
-
+use Conle\ESign\Emun\HttpEmun;
 /**
  * 轩辕API设置签署密码
  * @author  澄泓
@@ -62,7 +62,7 @@ class SetSignPwd extends EsignRequest implements \JsonSerializable
     function build()
     {
         $this->setUrl("/v1/accounts/".$this->accountId."/setSignPwd");
-        $this->setReqType(\HttpEmun::POST);
+        $this->setReqType(HttpEmun::POST);
     }
 
     /**
