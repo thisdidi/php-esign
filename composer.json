@@ -1,16 +1,7 @@
 {
     "name": "conle\/esign",
-    "description": "laravel md5 e签宝",
+    "description": "e签宝",
     "license": "MIT",
-    "require": {
-        "php":">=8.0",
-        "ext-openssl": "*",
-        "monolog/monolog": "^2.0",
-        "pimple/pimple": "^3.0",
-        "ext-json": "*",
-        "symfony/http-foundation": "^5.0",
-        "symfony/psr-http-message-bridge": "^2.0"
-    },
     "autoload": {
         "psr-4": {
             "Conle\\ESign\\": "src"
